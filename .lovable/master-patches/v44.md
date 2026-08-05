@@ -38,4 +38,4 @@ MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (=portal_key), REPUBLISH_HOOK_URL.
 Master-only durability credentials remain server-side.
 
 
-<!-- applied-by: MARTECH master | version: v44 | reason: loopback-self-heal | at: 2026-08-04T21:45:12.969Z -->
+<!-- applied-by: MARTECH master | version: v44 | reason: v48-lovable-independence | at: 2026-08-05T05:04:06.600Z -->
