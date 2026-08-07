@@ -1,41 +1,24 @@
-# Master Patch v44 — Email-Only Journey + GitHub Fleet Durability
+# Master Patch v48 — Total Lovable Independence + Always-Answering Policy Endpoints
 
-Master: MARTECH. Audience: master, all sub-portals, all slave portals, all
-independent PWA hosts. v13 / v29 / v40 / v41 / v42 still apply.
+Master: MARTECH. Audience: all main portals, sub-portals and slave portals. Supersedes v47 (still applies).
 
-## 1. Email-only verification window
-Until 2026-08-27, registration and sign-in collect and verify only the email
-code. Hide phone and WhatsApp-code inputs, skip phone validation, and do not
-invoke WhatsApp, SMS, or alternate-phone delivery. Keep existing credentials
-and templates untouched so the prior flow can resume after the window.
+## 1. Lovable-independent AI (mandatory)
+- Every chat/image/video/embedding call MUST go through `aiGatewayFetch` / `aiImageFetch` / `aiVideoFetch` / `embedTextsResilient`.
+- Provider order is FREE-FIRST: NVIDIA NIM → Groq → OpenRouter → Pollinations (keyless floor) → Lovable gateway only if a key happens to exist.
+- A missing `LOVABLE_API_KEY` is never an error. No route may return `503 Gateway not configured`. No code may call the Lovable AI gateway directly.
+- Degradation ladder instead of failure: image/vision → text-only, video → image, embeddings → local deterministic vectoriser.
 
-## 2. Customer-journey durability
-- Persist non-secret registration progress across refresh/OAuth return.
-- Isolate OTP rate limits by purpose and give transactional OTP mail bounded
-  exponential retry priority over broadcasts.
-- Retry session verification before rejecting a completed managed OAuth login.
-- Activate paid access only after provider-side subscription confirmation.
-- Keep clean sign-out and router navigation from the v41 contract.
+## 2. Master AI gateway
+`/api/public/ai-gateway` serves all slaves with zero credits. Auth stays `x-slave-key`; retry only 429/5xx responses and log every call.
 
-## 3. GitHub continuity after workspace moves
-- Canonical owner identity: vivekearthz@gmail.com / GitHub login vivekearthz.
-- Preserve each portal's own repository mapping from the private fleet registry.
-- Install both born-wired routes in every mapped slave repository.
-- On each durability sweep: restore canonical mappings first, reconcile current
-  renames/transfers, force-enroll agents, verify patch SHA, retry failures, back
-  up the repaired registry, then republish the whole fleet.
-- Repository/API durability is independent of the Lovable project-settings
-  GitHub App. A settings-level account mismatch still requires re-authorizing
-  that app as the same GitHub user; never copy or expose secret values.
+## 3. Policy endpoints must never 500
+`/api/public/portal/wa-policy`, `/api/public/portal/version`, and `/api/public/portal/instructions` are pure in-code projections with hardcoded fallback floors.
 
-## 4. Loopback
-After applying this patch, run master-sync, ACK pending config commands, emit a
-heartbeat containing policy v44, and republish. The master rechecks repository
-and patch presence and retries drift automatically.
+## 4. Repository durability and self-heal
+The canonical master repository is `vivekearthz/my-secret-automagic-0ad5a80b` on `main`. Every verified portal repository mapping is pinned in code, the backend registry, and the private fleet registry. The daily 02:30 IST orchestrator restores mappings, retries Contents API writes, loopback-verifies this patch, and republishes the fleet. A transient 404, archive flag, duplicate heuristic, or workspace credential failure must never erase a pinned mapping.
 
-## Required env (already common)
-MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (=portal_key), REPUBLISH_HOOK_URL.
-Master-only durability credentials remain server-side.
+## Required environment
+MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT, REPUBLISH_HOOK_URL. Optional: NVIDIA_API_KEY_SECRET, GROQ_API_KEY, OPENROUTER_API_KEY.
 
 
-<!-- applied-by: MARTECH master | version: v44 | reason: v48-lovable-independence | at: 2026-08-05T05:04:06.600Z -->
+<!-- applied-by: MARTECH master | version: v48 | reason: loopback-self-heal | at: 2026-08-07T08:12:23.019Z -->
