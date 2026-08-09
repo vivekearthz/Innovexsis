@@ -13,4 +13,4 @@ portal_directives (feature flags/kill switches) + portal_commands (remote execut
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:30:58.234Z -->
+<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:31:17.029Z -->
