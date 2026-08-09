@@ -13,4 +13,4 @@ Master commits MASTER_PATCH.md directly into each slave repo via GitHub Contents
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:30:59.386Z -->
+<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:31:18.151Z -->
