@@ -13,4 +13,4 @@ Daily AI topic candidate generation + spec scoring wired from GSC/engagement/lea
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:30:57.085Z -->
+<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:31:15.858Z -->
