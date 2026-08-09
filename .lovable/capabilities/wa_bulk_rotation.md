@@ -13,4 +13,4 @@ Drive/contacts crawler, round-robin segment rotation, 100-140/day cap, approved-
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v2 | 2026-08-09T20:31:06.492Z -->
+<!-- federated-by: MARTECH master | v2 | 2026-08-09T20:31:07.683Z -->
