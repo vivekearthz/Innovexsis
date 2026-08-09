@@ -13,4 +13,4 @@ Companies/contacts/deals/notes/tasks Kanban with lead capture, scoring, and anal
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:30:55.891Z -->
+<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:31:14.739Z -->
