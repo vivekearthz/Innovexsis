@@ -13,4 +13,4 @@ pgvector knowledge base with resilient embeddings for retrieval-augmented answer
    contact block + branded short links, feature deep-link CTAs).
 4. After applying, report the capability back via
    `POST /api/public/hooks/capability-report` so the gap matrix closes.
-<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:30:54.760Z -->
+<!-- federated-by: MARTECH master | v1 | 2026-08-09T20:31:13.567Z -->
