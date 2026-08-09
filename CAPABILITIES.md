@@ -1,11 +1,16 @@
 # Master Capability Catalog — items to adopt
 
-_Issued by MARTECH master at 2026-08-09T20:30:51.933Z for portal `pulse`._
+_Issued by MARTECH master at 2026-08-09T20:31:05.319Z for portal `pulse`._
 
 Implement each capability below, then report it back via
 `POST /api/public/hooks/capability-report`.
 
 - [Credit-Independent AI & Next-Gen Media Engine](.lovable/capabilities/credit_independent_ai.md) — ai (v3)
+- [WhatsApp Mass Extraction & Round-Robin Broadcast](.lovable/capabilities/wa_bulk_rotation.md) — whatsapp (v2)
+- [WhatsApp Template Dry-Run Self-Heal](.lovable/capabilities/wa_template_dryrun_selfheal.md) — whatsapp (v1)
+- [Automated Onboarding Engine](.lovable/capabilities/automated_onboarding.md) — lifecycle (v1)
+- [Verified Transactional Email Infra](.lovable/capabilities/transactional_email_infra.md) — email (v3)
+- [Daily Admin Report + Web Push](.lovable/capabilities/daily_admin_report.md) — reporting (v1)
 - [CXO Command Center Dashboard](.lovable/capabilities/cxo_command_center.md) — reporting (v2)
 - [Knowledge Hub RAG](.lovable/capabilities/knowledge_hub_rag.md) — ai (v1)
 - [CRM Kanban Pipeline](.lovable/capabilities/crm_pipeline.md) — crm (v1)
@@ -18,8 +23,3 @@ Implement each capability below, then report it back via
 - [22-Channel Social Autopilot](.lovable/capabilities/social_autopilot_22ch.md) — social (v3)
 - [Centralized Retry & Self-Healing Orchestrator](.lovable/capabilities/retry_orchestrator.md) — reliability (v1)
 - [Publish Verification Loop](.lovable/capabilities/publish_verification_loop.md) — reliability (v1)
-- [WhatsApp Mass Extraction & Round-Robin Broadcast](.lovable/capabilities/wa_bulk_rotation.md) — whatsapp (v2)
-- [WhatsApp Template Dry-Run Self-Heal](.lovable/capabilities/wa_template_dryrun_selfheal.md) — whatsapp (v1)
-- [Automated Onboarding Engine](.lovable/capabilities/automated_onboarding.md) — lifecycle (v1)
-- [Verified Transactional Email Infra](.lovable/capabilities/transactional_email_infra.md) — email (v3)
-- [Daily Admin Report + Web Push](.lovable/capabilities/daily_admin_report.md) — reporting (v1)
