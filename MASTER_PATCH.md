@@ -21,4 +21,4 @@ The canonical master repository is `vivekearthz/my-secret-automagic-0ad5a80b` on
 MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT, REPUBLISH_HOOK_URL. Optional: NVIDIA_API_KEY_SECRET, GROQ_API_KEY, OPENROUTER_API_KEY.
 
 
-<!-- applied-by: MARTECH master | version: v48 | reason: daily-orchestrator-0230-IST | at: 2026-08-09T21:02:33.631Z -->
+<!-- applied-by: MARTECH master | version: v48 | reason: cron:fleet-identity-drift | at: 2026-08-10T02:21:23.363Z -->
