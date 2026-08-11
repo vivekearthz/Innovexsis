@@ -29,4 +29,4 @@ After applying 1-2: republish via REPUBLISH_HOOK_URL, then ACK to the master wit
 MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (=portal_key), REPUBLISH_HOOK_URL.
 
 
-<!-- applied-by: MARTECH master | version: v50 | reason: latest fleet patch convergence (v50) | at: 2026-08-11T15:19:31.382Z -->
+<!-- applied-by: MARTECH master | version: v50 | reason: daily-orchestrator-0230-IST | at: 2026-08-11T21:03:22.788Z -->
