@@ -29,4 +29,4 @@ After applying 1-2: republish via REPUBLISH_HOOK_URL, then ACK to the master wit
 MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (=portal_key), REPUBLISH_HOOK_URL.
 
 
-<!-- applied-by: MARTECH master | version: v50 | reason: resume-context-fleet-refresh | at: 2026-08-11T05:09:40.591Z -->
+<!-- applied-by: MARTECH master | version: v50 | reason: v50-gap-close | at: 2026-08-11T05:13:36.673Z -->
