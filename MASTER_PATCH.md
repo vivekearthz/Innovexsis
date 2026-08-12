@@ -1,32 +1,32 @@
-# Master Patch v50 — Per-Host SEO Identity + Official Email Correction
+# Master Patch v51 — Three-Way Agent Bus (Lovable ⇄ GitHub ⇄ Cursor/Merlin)
 
-Master: MARTECH. Audience: all main portals, sub-portals and slave portals. Supersedes v49 (v48/v49 still apply).
+Master: MARTECH. Audience: all main portals, sub-portals and slave portals. Supersedes v50 (still applies).
 
-## 1. Duplicate titles are a defect (mandatory)
-Every host served by a shared "/" route MUST emit its OWN head metadata. A static `head()` on a multi-host route makes search and AI engines collapse the portals into duplicates and suppress all but one.
+## 1. Agent contract in every repo (mandatory)
+Every portal repo carries `.cursor/rules/martech-fleet.mdc` and `docs/AGENT-THREE-WAY-SYNC.md`.
+Task briefs land in `.agent-tasks/queue/<task-id>--<slug>.md`; agents commit results to
+`.agent-tasks/results/<task-id>.json` with `{ task_id, status, agent, summary, files_changed, commit }`.
 
-Required per host / per portal:
-- Unique `<title>` (< 60 chars, primary keyword first, never repeated anywhere in the fleet).
-- Unique `<meta name="description">` (< 160 chars).
-- SELF-REFERENCING `<link rel="canonical">` and `og:url` pointing at that host's own origin — never at the master domain.
-- Unique `og:title` / `og:description` plus `og:type` and `twitter:card`.
-- Per-host JSON-LD: Organization + WebSite with the host's own `@id` and `url`. Do not reuse the master's graph.
+## 2. Ingest + republish loop
+The master ingests result files every 20 minutes (`/api/public/hooks/agent-bus`), records them on
+`public.agent_tasks`, and calls `broadcastFleetRepublish` so every portal goes live with the change.
+Push-based results may also POST to `/api/public/hooks/agent-task-result`.
 
-Implementation reference (master): `src/lib/portal-seo.ts` holds a keyed identity map; the route resolves the host in `beforeLoad`, passes the product key through `loader`, and `head({ loaderData })` builds the tags. Single-product portals hardcode their own identity.
+## 3. Cursor background agents + access gate (new in v51)
+When `CURSOR_API_KEY` exists, dispatch LAUNCHES a Cursor background agent instead of waiting for a
+human pull. Before launching, the bus probes `GET /v0/repositories` and only launches on repos the
+Cursor GitHub App can reach. If access is missing it records ONE actionable blocker
+(`cursor_access_blocked`) instead of burning retries on a misleading "branch not found", and
+auto-launches every pending brief on the first cycle after access is granted.
 
-## 2. Official contact email (mandatory)
-The ONLY valid public Innovexsis address is `director@innovexsis.com`.
+## 4. Self-healing
+Stale dispatches are requeued with exponential backoff; failed launches are relaunched (bounded);
+live agent status (RUNNING/FINISHED/ERROR + PR URL) is reconciled every cycle. Git-only handoff is
+always the working floor — the bus never depends on the Cursor API being reachable.
 
-These mailboxes DO NOT EXIST and must be purged from every CTA, contact block, footer, listing, email template, WhatsApp template, JSON-LD and social profile:
-`hello@`, `help@`, `info@`, `support@`, `contact@`, `admin@`, `sales@` (all @innovexsis.com).
-
-Add a build/audit guard: any occurrence of a forbidden address fails the content check and is auto-replaced with `director@innovexsis.com`.
-
-## 3. Loopback + self-heal (mandatory)
-After applying 1-2: republish via REPUBLISH_HOOK_URL, then ACK to the master with the emitted title/canonical for your host so the master's fleet SEO audit can verify uniqueness. The weekly `seo-audit-weekly` run re-checks and re-dispatches on drift, with zero human intervention.
-
-## Required env (already common)
-MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (=portal_key), REPUBLISH_HOOK_URL.
+## Required env
+Master: `GITHUB_PATCH_TOKEN` (or workspace GitHub key), `AGENT_BUS_RUN_TOKEN`, optional
+`CURSOR_API_KEY`, optional `MERLIN_API_KEY`. Slaves: nothing new.
 
 
-<!-- applied-by: MARTECH master | version: v50 | reason: daily-orchestrator-0230-IST | at: 2026-08-11T21:03:22.788Z -->
+<!-- applied-by: MARTECH master | version: v51 | reason: three-way agent bus + cursor access gate | at: 2026-08-12T19:12:52.501Z -->
