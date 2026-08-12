@@ -29,4 +29,4 @@ Master: `GITHUB_PATCH_TOKEN` (or workspace GitHub key), `AGENT_BUS_RUN_TOKEN`, o
 `CURSOR_API_KEY`, optional `MERLIN_API_KEY`. Slaves: nothing new.
 
 
-<!-- applied-by: MARTECH master | version: v51 | reason: three-way agent bus + cursor access gate | at: 2026-08-12T19:12:52.501Z -->
+<!-- applied-by: MARTECH master | version: v51 | reason: daily-orchestrator-0230-IST | at: 2026-08-12T21:03:16.963Z -->
