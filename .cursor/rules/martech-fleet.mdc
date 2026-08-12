@@ -1,0 +1,13 @@
+---
+description: MarTech fleet engineering rules for portal pulse
+alwaysApply: true
+---
+- Stack is fixed: TanStack Start v1 + React 19 + Vite 7 + Tailwind v4 + Supabase.
+  Never introduce react-router-dom, Next.js, or another router/framework.
+- App-internal server logic goes in `createServerFn` (`*.functions.ts`);
+  raw HTTP/webhooks/cron go in `src/routes/api/public/*`. No Supabase edge functions.
+- Never read `process.env` at module scope; read it inside handlers.
+- Every new public table needs GRANTs + RLS policies in the same migration.
+- Never commit secrets. Never weaken RLS or use the service role for ordinary reads.
+- Tasks come from `.agent-tasks/queue/`; results MUST be written to `.agent-tasks/results/<task-id>.json`.
+- Prefer small focused modules; keep files under ~400 lines.
