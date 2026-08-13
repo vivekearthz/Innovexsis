@@ -1,32 +1,30 @@
-# Master Patch v51 — Three-Way Agent Bus (Lovable ⇄ GitHub ⇄ Cursor/Merlin)
+# Master Patch v55 — Permanent Lovable-Credit Freedom + Cursor Primary + 24h NVIDIA Model Discovery
 
-Master: MARTECH. Audience: all main portals, sub-portals and slave portals. Supersedes v50 (still applies).
+Master: MARTECH. Audience: master portal, all sub-portals and all slave portals. Supersedes v51 (all earlier patches still apply).
 
-## 1. Agent contract in every repo (mandatory)
-Every portal repo carries `.cursor/rules/martech-fleet.mdc` and `docs/AGENT-THREE-WAY-SYNC.md`.
-Task briefs land in `.agent-tasks/queue/<task-id>--<slug>.md`; agents commit results to
-`.agent-tasks/results/<task-id>.json` with `{ task_id, status, agent, summary, files_changed, commit }`.
+## 1. The paid Lovable gateway is OFF by default (hard rule)
+- `aiGatewayFetch` / `aiImageFetch` / `aiVideoFetch` / `embedTextsResilient` now gate every Lovable call behind `lovableAiEnabled()`, which requires `ALLOW_LOVABLE_AI=true` AND a key AND `SOVEREIGN_ONLY` unset.
+- With no env vars at all a portal is permanently credit-free. Exhausted or removed Lovable credits can never break chat, image, vision, video or embeddings.
+- Never `fetch("https://ai.gateway.lovable.dev/...")` directly and never throw on a missing `LOVABLE_API_KEY`.
 
-## 2. Ingest + republish loop
-The master ingests result files every 20 minutes (`/api/public/hooks/agent-bus`), records them on
-`public.agent_tasks`, and calls `broadcastFleetRepublish` so every portal goes live with the change.
-Push-based results may also POST to `/api/public/hooks/agent-task-result`.
+## 2. Provider order (free-first, owned-second, paid-last)
+1. NVIDIA NIM free ladders (live health registry)
+2. Cursor (`CURSOR_API_KEY`, OpenAI-compatible) — the owner's already-paid primary environment
+3. Merlin (`MERLIN_API_KEY`)
+4. Sovereign non-US paid (DeepSeek → GLM → Qwen → Kimi)
+5. Groq → OpenRouter → Pollinations keyless floor
+6. Lovable gateway only if explicitly re-enabled
 
-## 3. Cursor background agents + access gate (new in v51)
-When `CURSOR_API_KEY` exists, dispatch LAUNCHES a Cursor background agent instead of waiting for a
-human pull. Before launching, the bus probes `GET /v0/repositories` and only launches on repos the
-Cursor GitHub App can reach. If access is missing it records ONE actionable blocker
-(`cursor_access_blocked`) instead of burning retries on a misleading "branch not found", and
-auto-launches every pending brief on the first cycle after access is granted.
+Degradation instead of failure: image/vision → text-only, video → image, embeddings → local deterministic 1536-dim vectoriser.
 
-## 4. Self-healing
-Stale dispatches are requeued with exponential backoff; failed launches are relaunched (bounded);
-live agent status (RUNNING/FINISHED/ERROR + PR URL) is reconciled every cycle. Git-only handoff is
-always the working floor — the bus never depends on the Cursor API being reachable.
+## 3. NVIDIA free-model discovery every 24 hours
+The 02:30 IST orchestrator probes the live NVIDIA catalog, demotes 400/401/403/404/410/422 models instantly, re-promotes recovered ones, and AUTO-DISCOVERS catalog models missing from the static ladders (tagged `auto-discovered`, appended to the matching task ladder). Newly released free models are adopted within a day with no code change. 429/5xx/timeouts are transient and never demote.
 
-## Required env
-Master: `GITHUB_PATCH_TOKEN` (or workspace GitHub key), `AGENT_BUS_RUN_TOKEN`, optional
-`CURSOR_API_KEY`, optional `MERLIN_API_KEY`. Slaves: nothing new.
+## 4. Self-heal, retry and self-republish
+Every stage retries with exponential backoff and bounded attempts. After the AI-independence stages pass, the orchestrator forces a fleet-wide republish and retries any portal that did not come back, so each portal re-publishes itself with the fix applied — no human intervention.
+
+## Required environment
+MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT, REPUBLISH_HOOK_URL. Optional: NVIDIA_API_KEY_SECRET, CURSOR_API_KEY, MERLIN_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY. `LOVABLE_API_KEY` is NOT required anywhere.
 
 
-<!-- applied-by: MARTECH master | version: v51 | reason: cron:repo-provision | at: 2026-08-13T10:55:17.534Z -->
+<!-- applied-by: MARTECH master | version: v55 | reason: v55-credit-freedom | at: 2026-08-13T18:57:28.886Z -->
