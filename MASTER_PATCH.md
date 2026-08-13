@@ -29,4 +29,4 @@ Master: `GITHUB_PATCH_TOKEN` (or workspace GitHub key), `AGENT_BUS_RUN_TOKEN`, o
 `CURSOR_API_KEY`, optional `MERLIN_API_KEY`. Slaves: nothing new.
 
 
-<!-- applied-by: MARTECH master | version: v51 | reason: cron:fleet-identity-drift | at: 2026-08-13T02:22:16.938Z -->
+<!-- applied-by: MARTECH master | version: v51 | reason: cron:repo-provision | at: 2026-08-13T10:55:17.534Z -->
