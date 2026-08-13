@@ -27,4 +27,4 @@ Every stage retries with exponential backoff and bounded attempts. After the AI-
 MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT, REPUBLISH_HOOK_URL. Optional: NVIDIA_API_KEY_SECRET, CURSOR_API_KEY, MERLIN_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY. `LOVABLE_API_KEY` is NOT required anywhere.
 
 
-<!-- applied-by: MARTECH master | version: v55 | reason: v55-credit-freedom | at: 2026-08-13T18:57:28.886Z -->
+<!-- applied-by: MARTECH master | version: v55 | reason: v55 credit-freedom + latest master codebase sync | at: 2026-08-13T19:19:16.458Z -->
