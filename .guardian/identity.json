@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "repository": "vivekearthz/Innovexsis",
+  "portalKey": "pulse",
+  "role": "slave",
+  "master": "MARTECH",
+  "patchVersion": "v56",
+  "managedBy": "project-guardian"
+}
