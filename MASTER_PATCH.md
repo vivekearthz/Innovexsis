@@ -29,4 +29,4 @@ Master: MARTECH (marcomm). Audience: master portal, every sub-portal and every s
 MASTER_HOST, MASTER_SYNC_SECRET, PRODUCT (= portal_key), REPUBLISH_HOOK_URL. `LOVABLE_API_KEY` remains NOT required anywhere (v55 credit freedom stands).
 
 
-<!-- applied-by: MARTECH master | version: v56 | reason: cron:fleet-identity-drift | at: 2026-08-19T02:28:02.249Z -->
+<!-- applied-by: MARTECH master | version: v56 | reason: cron:fleet-identity-drift | at: 2026-08-20T02:28:46.370Z -->
