@@ -53,4 +53,4 @@ retry against the next alias with exponential backoff.
 - Do not rename your own GitHub repo; the master owns naming.
 
 
-<!-- applied-by: MARTECH master | version: v59 | reason: credit-independence v59 loopback: 39 portal(s) not credit-free | at: 2026-08-20T20:19:59.148Z -->
+<!-- applied-by: MARTECH master | version: v59 | reason: cron:fleet-identity-drift | at: 2026-08-21T02:28:04.410Z -->
