@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "repository": "vivekearthz/Innovexsis",
+  "repository": "vivekearthz/pulse",
   "portalKey": "pulse",
   "role": "slave",
   "master": "MARTECH",
